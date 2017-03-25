@@ -6,16 +6,27 @@ package id.co.imastudio.recipeapp;
 public class ResepModel {
     private String namaMasakan, tipeMasakan, porsiMasakan, waktuMasakan;
     private int gambarMasakan;
+    private String detailMasakan;
 
     public ResepModel() {
     }
 
-    public ResepModel(String namaMasakan, String tipeMasakan, String porsiMasakan, String waktuMasakan, int gambarMasakan) {
+    public ResepModel(String namaMasakan, String tipeMasakan, String porsiMasakan, String waktuMasakan,
+                      int gambarMasakan, String detailMasakan) {
         this.namaMasakan = namaMasakan;
         this.tipeMasakan = tipeMasakan;
         this.porsiMasakan = porsiMasakan;
         this.waktuMasakan = waktuMasakan;
         this.gambarMasakan = gambarMasakan;
+        this.detailMasakan = detailMasakan;
+    }
+
+    public String getDetailMasakan() {
+        return detailMasakan;
+    }
+
+    public void setDetailMasakan(String detailMasakan) {
+        this.detailMasakan = detailMasakan;
     }
 
     public String getNamaMasakan() {

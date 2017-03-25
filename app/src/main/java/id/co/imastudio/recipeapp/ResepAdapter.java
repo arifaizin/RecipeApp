@@ -1,6 +1,7 @@
 package id.co.imastudio.recipeapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -29,6 +30,7 @@ public class ResepAdapter extends RecyclerView.Adapter<ResepAdapter.ViewHolder>{
         ImageView gambarMasakan;
         TextView namaMasakan, tipeMasakan, porsiMasakan, waktuMasakan;
         CardView cardView;
+
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -66,20 +68,22 @@ public class ResepAdapter extends RecyclerView.Adapter<ResepAdapter.ViewHolder>{
         holder.porsiMasakan.setText(ResepModel.getPorsiMasakan());
         holder.waktuMasakan.setText(ResepModel.getWaktuMasakan());
 
-//        //event klik
-//        holder.cardView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(context, "Judulnya"+ResepModel.getNamaMasakan()+"loh.."+position, Toast.LENGTH_SHORT).show();
-////
-////                Intent pindah = new Intent(context, DetailResepActivity.class);
-//                //kirim data
-////                pindah.putExtra("position",position);
-////                context.startActivity(pindah);
-//                //pakai context kalau mulainya nggak dari sini, tapi dari Activity lain
-//
-//            }
-//        });
+        //event klik
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+//                Toast.makeText(context, "Judulnya "+ResepModel.getNamaMasakan()+" loh..", Toast.LENGTH_SHORT).show();
+                Intent pindah = new Intent(context, DetailResepActivity.class);
+                pindah.putExtra("extraNama",ResepModel.getNamaMasakan());
+                pindah.putExtra("extraGambar",ResepModel.getGambarMasakan());
+                pindah.putExtra("extraDetail",ResepModel.getDetailMasakan());
+
+                context.startActivity(pindah);
+                //pakai context kalau mulainya nggak dari sini, tapi dari Activity lain
+
+            }
+        });
 
 
 
